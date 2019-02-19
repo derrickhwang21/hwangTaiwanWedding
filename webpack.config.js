@@ -9,7 +9,10 @@ module.exports = {
         filename: 'bundle.js',
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.json', '.css']
+        extensions: ['.js', '.jsx', '.json', '.css', '.svg', '.eot', '.woff2', '.woff', '.ttf'],
+        modules: [
+          'node_modules'
+        ] 
     },
     module: {
         rules: [
@@ -24,6 +27,26 @@ module.exports = {
             {
                 test: /\.jpg/,
                 loader: 'file-loader'
+            },
+            {
+                test: /\.svg/,
+                loader: 'url-loader?limit=10000&mimetype=image/svg+xm'
+            },
+            {
+                test: /\.eot/,
+                loader: 'file-loader'
+            },
+            {
+                test: /\.woff/,
+                loader: 'url-loader?limit=10000&mimetype=application/font-woff'
+            },
+            {
+                test: /\.woff2/,
+                loader: 'url-loader?limit=10000&mimetype=application/font-woff'
+            },
+            {
+                test: /\.ttf/,
+                loader: 'url-loader?limit=10000&mimetype=application/octet-stream'
             },
             {
                 test: /\.jsx?/,
