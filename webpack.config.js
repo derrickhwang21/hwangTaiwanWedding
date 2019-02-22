@@ -1,43 +1,28 @@
-const path = require('path');
-const SRC_DIR = path.join(__dirname, '/react-client/src');
-const DIST_DIR = path.join(__dirname, '/react-client/dist');
-const webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
-    entry: `${SRC_DIR}/index.jsx`,
-    output: {
-        path: DIST_DIR,
-        filename: 'bundle.js',
-    },
+    mode: 'development',
     resolve: {
-        extensions: ['.js', '.jsx', '.json', '.css']
+        extensions: ['.js', '.jsx']
     },
     module: {
         rules: [
             {
-                test: /\.css$/,
-                loader: 'style-loader!css-loader'
-            },
-            {
-                test: /\.png$/,
-                loader: 'url-loader?limit=100000&minetype=image/png'
-            },
-            {
-                test: /\.jpg/,
-                loader: 'file-loader'
-            },
-            {
-                test: /\.jsx?/,
-                include: SRC_DIR,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['react', 'es2015']
-                }
+                test: /\.jsx?$/,
+                loader: 'babel-loader'
             }
         ]
     },
-    plugins: [
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('production')
+    plugins: [new HtmlWebpackPlugin({
+        template: './src/index.html'
+    })],
+    devServer: {
+        historyApiFallback: true
+    },
+    externals: {
+        // global app config object
+        config: JSON.stringify({
+            apiUrl: 'http://localhost:4000'
         })
-    ]
-};
+    }
+}
