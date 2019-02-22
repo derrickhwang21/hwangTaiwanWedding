@@ -1,10 +1,5 @@
-# Wedding Information Site
+# react-redux-registration-login-example
 
-## Source
-[React Tutorial](https://medium.com/@Preda/getting-started-on-building-a-personal-website-with-react-b44ee93b1710)
+React + Redux - User Registration and Login Tutorial & Example
 
-[Semantic UI React](https://react.semantic-ui.com/introduction)
-
-[Semantic UI Tutorial](https://medium.com/@Preda/semantic-ui-for-good-looking-looking-elements-5e6645787e99)
-
-[Babel Loader](https://github.com/babel/babel-loader)
+For documentation and further details go to http://jasonwatmore.com/post/2017/09/16/react-redux-user-registration-and-login-tutorial-example
